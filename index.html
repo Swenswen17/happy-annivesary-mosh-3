@@ -16,6 +16,43 @@
       color: #333;
     }
 
+    <!-- YouTube Music Embed (Hidden) -->
+<iframe id="yt-music" width="0" height="0"
+  src="https://www.youtube.com/embed/GhQxrCrVSyw?enablejsapi=1"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+<!-- Music Controls -->
+<button onclick="playYT()" style="padding:10px 20px; font-size:16px; margin-top:20px; border-radius:8px; background-color:#ff69b4; color:white; border:none; cursor:pointer;">
+  Play Music 💖
+</button>
+
+<button onclick="pauseYT()" style="padding:10px 20px; font-size:16px; margin-top:10px; border-radius:8px; background-color:#ff1493; color:white; border:none; cursor:pointer;">
+  Pause Music 💔
+</button>
+
+<script>
+  // YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-music');
+  }
+
+  function playYT() {
+    if (player) player.playVideo();
+  }
+
+  function pauseYT() {
+    if (player) player.pauseVideo();
+  }
+</script>
+
     h1 {
       font-family: 'Parisienne', cursive;
       font-size: 3em;
